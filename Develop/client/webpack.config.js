@@ -17,13 +17,46 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+// Added HtmlWebpackPlugin GenerateSW and WebpackPwaManifest
     plugins: [
-      
+      new HtmlWebpackPlugin( {    // Added this plugin
+        template: './index.html',
+        title: 'Text Editor'
+      }),          
+      new WebpackPwaManifest({   // Added this plugin
+        name: 'Text Editor',
+        short_name: 'Txt Ed',
+        description: 'Edit text online or offline!',
+        theme_color: '#7eb4e2',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('Develop/client/src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('Develop', icons),
+          },
+        ],
+      }),
     ],
-
+// Added CSS loader rules and Babel rules 
     module: {
       rules: [
-        
+        {
+          test: /\.css$i,                         
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/present-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
+            },
+          },
+        },
       ],
     },
   };

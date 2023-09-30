@@ -1,19 +1,19 @@
 {
-  "name": "JATE",
+  "name": "jate",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a single page text editor application that runs in the browser and meets the Progressive Web Application criteria.  It features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser.  This app will also function offline.",
   "main": "server.js",
   "scripts": {
     "start:dev": "",
     "start": "",
     "server": "",
-    "build": "",
+    "build": "webpack",
     "install": "",
     "client": ""
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Douglas Marsalis",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4"
