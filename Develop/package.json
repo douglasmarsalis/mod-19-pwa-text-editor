@@ -4,12 +4,13 @@
   "description": "This is a single page text editor application that runs in the browser and meets the Progressive Web Application criteria.  It features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser.  This app will also function offline.",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "webpack",
-    "install": "",
-    "client": ""
+    "dev": "webpack-dev-server",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "Douglas Marsalis",
