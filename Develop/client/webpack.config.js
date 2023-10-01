@@ -15,13 +15,14 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
+      path: path.resolve(__dirname, 'dist'),  // Below this line, could add - devServer: hot: 'only' - but don't have webopack-dev-server --open 
+    },                                        // AND this will run from Heroku, so not needed??
 // Added HtmlWebpackPlugin GenerateSW and WebpackPwaManifest
+// With the HtmlWebpackPlugin, there is no need for a script inside the index.html file
     plugins: [
       new HtmlWebpackPlugin( {    // Added this plugin
         template: './index.html',
-        title: 'Text Editor'
+        title: 'Text Editor'      // Activity uses Webpack Plugin as the title
       }),          
       new WebpackPwaManifest({   // Added this plugin
         name: 'Text Editor',
@@ -34,12 +35,13 @@ module.exports = () => {
           {
             src: path.resolve('Develop/client/src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('Develop', icons),
+            destination: path.join('Develop', images),
           },
         ],
       }),
     ],
 // Added CSS loader rules and Babel rules 
+// Normally, the MiniCSSExtractPlugin is also needed to bundle and build main css folder - this was provided by the activity
     module: {
       rules: [
         {
@@ -47,8 +49,8 @@ module.exports = () => {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.m?js$/,
-          exclude: /node_modules/,
+          test: /\.m?js$/,                               // This will downgrade from ES6 to ES5
+          exclude: /(node_modules | bower_components)/, // May not need bower_components, |, and () - This is from activity 8
           use: {
             loader: 'babel-loader',
             options: {
