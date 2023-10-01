@@ -27,4 +27,20 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  new StaleWhileRevalidate({  // Used to optimize web page loading times, serves cached version of resources while also checking for updates on network
+    cacheName: 'asset-cache', // Name of cache storage
+    pluggins: [
+      new CacheableResponsePlugin({  // Handles caching and responses from a web server or API to  
+        statuses: [0, 200],         // improve performance and reduce the load on the server
+      }),
+      new ExpirationPlugin({  // Manages the expiration or time-based validity of data or resources
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // This equals to One Month
+      })
+    ],
+  })
+);
+
+

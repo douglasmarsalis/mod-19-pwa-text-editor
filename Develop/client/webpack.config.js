@@ -23,7 +23,8 @@ module.exports = () => {
       new HtmlWebpackPlugin( {    // Added this plugin
         template: './index.html',
         title: 'Text Editor'      // Activity uses Webpack Plugin as the title
-      }),          
+      }),
+      new GenerateSW(),          // Added this plugin
       new WebpackPwaManifest({   // Added this plugin
         name: 'Text Editor',
         short_name: 'Txt Ed',
