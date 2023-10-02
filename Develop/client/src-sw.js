@@ -38,9 +38,9 @@ registerRoute(
       new ExpirationPlugin({  // Manages the expiration or time-based validity of data or resources
         maxEntries: 60,
         maxAgeSeconds: 30 * 24 * 60 * 60, // This equals to One Month
-      })
+      }),
     ],
-  })
+  }),
 );
 
 

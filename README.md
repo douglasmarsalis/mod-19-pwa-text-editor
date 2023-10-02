@@ -40,6 +40,8 @@ THEN I should have proper build scripts for a webpack application
 ## Sources
 * Rice University Activities for PWA.
 * Emojis - https://unicode.org/emoji/charts/full-emoji-list.html
+* mdn web docs - https://developer.mozilla.org/
+* webpack.js.org - https://webpack.js.org/
 
 ## Installation
 
@@ -53,7 +55,7 @@ THEN I should have proper build scripts for a webpack application
 ## Demonstration Videos
 
 
-## Link to Deployed Site
+## Link to Deployed Site - Heroku
 
 
 ## Link to GitHub Repository
