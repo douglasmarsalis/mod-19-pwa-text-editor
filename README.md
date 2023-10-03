@@ -42,6 +42,7 @@ THEN I should have proper build scripts for a webpack application
 * Emojis - https://unicode.org/emoji/charts/full-emoji-list.html
 * mdn web docs - https://developer.mozilla.org/
 * webpack.js.org - https://webpack.js.org/
+* Deploying to Heoku - https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide
 
 ## Installation
 

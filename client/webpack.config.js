@@ -5,6 +5,8 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
+const WorkboxPlugin = require("workbox-webpack-plugin");
+const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => {
   return {
@@ -22,21 +24,29 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin( {    // Added this plugin
         template: './index.html',
-        title: 'Text Editor'      // Activity uses Webpack Plugin as the title
+        title: 'Webpack Plugins'      // Activity uses Webpack Plugin as the title
       }),
-      new GenerateSW(),          // Added this plugin
+      new MiniCSSExtractPlugin(), // Added this plugin
+      new InjectManifest({        // Added this plugin 
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+      //new GenerateSW(),          // Added this plugin
       new WebpackPwaManifest({   // Added this plugin
-        name: 'Text Editor',
-        short_name: 'Txt Ed',
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
         description: 'Edit text online or offline!',
-        theme_color: '#7eb4e2',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
         start_url: './',
         publicPath: './',
         icons: [
           {
-            src: path.resolve('Develop/client/src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('Develop', images),
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
@@ -47,11 +57,15 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,                         
-          use: ['style-loader', 'css-loader'],
+          use: ['style-loader', 'css-loader'],  // For CSS Style Loader
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,  // For images or icons
+          type: "asset/resource",
         },
         {
           test: /\.m?js$/,                               // This will downgrade from ES6 to ES5
-          exclude: /(node_modules | bower_components)/, // May not need bower_components, |, and () - This is from activity 8
+          exclude: /node_modules/, 
           use: {
             loader: 'babel-loader',
             options: {
