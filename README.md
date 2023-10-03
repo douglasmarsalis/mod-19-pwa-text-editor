@@ -45,22 +45,22 @@ THEN I should have proper build scripts for a webpack application
 * Deploying to Heoku - https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide
 
 ## Installation
+  * npm install express (express.js)
+  * npm install --save-dev webpack (Webpack)
+  * npm install webpack-dev-server --save-dev (webpack-dev-server)
+  * npm install --save-dev webpack-pwa-manifest (WebpackPwaManifest)
+  * npm install babel (Babel)
+  * npm install --save-dev css-loader (CSS-loader)
+  * npm npm install idb (IndexedDB)
 
-
-## Usage
-
-
-## Features
-
-
-## Demonstration Videos
+## Images
 
 
 ## Link to Deployed Site - Heroku
-
+https://douglas-jate-pwa-text-editor-8fc543a3d0d1.herokuapp.com/
 
 ## Link to GitHub Repository
-
+https://github.com/douglasmarsalis/mod-19-pwa-text-editor
 
 ## License
 MIT License
