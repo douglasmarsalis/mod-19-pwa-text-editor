@@ -55,6 +55,11 @@ THEN I should have proper build scripts for a webpack application
   * npm npm install idb (IndexedDB)
 
 ## Images
+<img width="724" alt="Manifest" src="https://github.com/douglasmarsalis/mod-19-pwa-text-editor/assets/112460009/3949f8dc-d1cb-4512-a9b4-6d60801998bf">
+
+<img width="724" alt="serviceWorkers" src="https://github.com/douglasmarsalis/mod-19-pwa-text-editor/assets/112460009/b255877a-9a47-430c-9529-e0a5b746c79e">
+
+<img width="724" alt="indexedDB" src="https://github.com/douglasmarsalis/mod-19-pwa-text-editor/assets/112460009/50fb903b-8537-491e-ab4b-6abfc7b7b165">
 
 
 ## Link to Deployed Site - Heroku
